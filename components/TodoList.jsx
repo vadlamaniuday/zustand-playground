@@ -10,8 +10,10 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
+import Cookies from "universal-cookie";
 
 const TodoList = () => {
+  const cookies = new Cookies();
   const { todo, removeTodo, toggleTodo } = useTodoStore((state) => ({
     todo: state.todo,
     removeTodo: state.removeTodo,
@@ -50,7 +52,10 @@ const TodoList = () => {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => removeTodo(todo.id)}
+                onClick={() => {
+                  removeTodo(todoItem.id);
+                  cookies.remove("todo");
+                }}
                 className="ml-auto text-red-500 hover:text-red-700"
               >
                 <Trash2 className="w-4 h-4 mr-1" />

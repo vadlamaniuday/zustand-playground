@@ -24,6 +24,7 @@ const Todo = () => {
     });
     setTodo("");
     cookies.set("todo", todo, { path: "/" });
+    cookies.set("todoId", todo, { path: "/" });
     localStorage.setItem("message", "hello fam");
   };
 
