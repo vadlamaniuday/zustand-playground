@@ -53,7 +53,7 @@ const TodoList = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => {
-                  removeTodo(todoItem.id);
+                  removeTodo(todo.id);
                   cookies.remove("todo");
                 }}
                 className="ml-auto text-red-500 hover:text-red-700"
